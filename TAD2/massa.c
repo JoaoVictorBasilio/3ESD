@@ -5,7 +5,7 @@
 
 struct mas {
     int kg,g;
-}
+};
 
 Massa* mas_cria(int kg,int g){
     Massa* m = (Massa*) malloc(sizeof(Massa));
@@ -37,6 +37,6 @@ int mas_paraGramas(Massa* m){
 int mas_soma(Massa *m1,Massa *m2){
     int a1 = mas_paraGramas(m1);
     int a2 = mas_paraGramas(m2);
-    int dif = a1-a2;
+    int dif = a1+a2;
     return dif;
 }
