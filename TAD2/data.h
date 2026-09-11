@@ -1,7 +1,18 @@
 #ifndef DATA_H
 #define DATA_H
 
-typedef struct data Data;
+/*
+ * TAD Data
+ * -------
+ * Representa uma data em formato calendário com dia, mês e ano.
+ * Permite criação, comparação e conversão para string.
+ */
+
+typedef struct data {
+    int dia;
+    int mes;
+    int ano;
+} Data;
 
 /* Aloca dinamicamente uma Data validando dia, mês e ano. */
 Data* dta_cria(int d, int m, int a);

@@ -1,12 +1,24 @@
 //--------------
-// Implementa��o
+// Implementação
 //--------------
 
 #include "Data.h"
+
+/*
+ * Estrutura interna da data.
+ * Guarda os campos dia, mês e ano para que o TAD possa realizar
+ * comparações, conversões e cálculos de intervalos.
+ */
 struct data {
     int dia, mes, ano;
 };
-// fun��es auxiliares
+
+/*
+ * Funções auxiliares internas:
+ * - convDataDiaJuliano converte uma data para número de dia juliano.
+ * - convDiaJulianoData reconverte um dia juliano para uma data em formato TAD.
+ * Esses cálculos ajudam a comparar datas sem depender de bibliotecas externas.
+ */
 
 int convDataDiaJuliano(int dia, int mes, int ano) {
     int A, B, C, D, E, F;

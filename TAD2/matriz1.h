@@ -1,7 +1,14 @@
-#ifndef MATRIZ_H
-#define MATRIZ_H
+#ifndef MATRIZ1_H
+#define MATRIZ1_H
 
-#include <stddef.h> // size_t
+#include <stddef.h>
+
+/*
+ * TAD Matriz
+ * ---------
+ * Representa uma matriz numérica bidimensional com operações de criação,
+ * acesso, soma de linhas/colunas e soma de duas matrizes.
+ */
 
 // Tipo opaco
 typedef struct matriz Matriz;
@@ -27,14 +34,14 @@ int acessaMatrizSafe(const Matriz* m, int linha, int coluna, int* out);
 void imprimeMatriz(const Matriz* m);
 
 // --------- Operações pedidas ---------
-
-// Soma de uma linha específica (0-based). Retorna 1 (ok) ou 0 (falha)
 int somaLinhaMatriz(const Matriz* m, int linha, long long* soma_out);
-
-// Soma de uma coluna específica (0-based). Retorna 1 (ok) ou 0 (falha)
 int somaColunaMatriz(const Matriz* m, int coluna, long long* soma_out);
-
-// Soma de matrizes (resultado = A + B). Retorna nova matriz ou NULL se dimensões incompatíveis.
 Matriz* somaMatrizes(const Matriz* A, const Matriz* B);
+
+// Funções de compatibilidade com nomes usados em outros módulos
+Matriz* mat_cria(int linhas, int colunas);
+void mat_libera(Matriz* m);
+void mat_atribui(Matriz* m, int linha, int coluna, double valor);
+char* mat_paraString(const Matriz* m);
 
 #endif

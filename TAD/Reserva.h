@@ -3,6 +3,13 @@
 
 #include "Data.h"
 
+/*
+ * TAD Reserva
+ * ----------
+ * Representa uma reserva de hospedagem com hóspede, quarto, valor da diária,
+ * data de check-in e data de check-out.
+ * A partir dessas informações, calcula-se a quantidade de diárias e o valor total.
+ */
 typedef struct reserva tReserva;
 
 /* Função cria: Aloca dinamicamente uma reserva com hóspede, número do quarto, 

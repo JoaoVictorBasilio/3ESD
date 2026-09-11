@@ -1,13 +1,19 @@
-typedef struct mas Massa;
+#ifndef MASSA_H
+#define MASSA_H
 
-Massa* mas_cria(int kg,int g);
+/*
+ * TAD Massa
+ * --------
+ * Representa uma massa em quilogramas e gramas.
+ * Permite criar, somar, converter para texto e transformar em gramas.
+ */
 
-void mas_libera(Massa* m);
+typedef struct massa Massa;
 
-char* mas_paraString(Massa* m);
+Massa* mas_cria(int kg, int g);
+void mas_libera(Massa *m);
+char* mas_paraString(Massa *m);
+int mas_paraGramas(Massa *m);
+Massa* mas_soma(Massa *m1, Massa *m2);
 
-int mas_paraGramas(Massa* m);
-
-int mas_soma(Massa *m1,Massa *m2);
-
-
+#endif

@@ -4,6 +4,12 @@
 #include "Data.h"
 #include "Reserva.h"
 
+/*
+ * Programa principal de teste do TAD de reservas.
+ * Ele cria três exemplos de reservas com datas distintas,
+ * exibe o relatório de cada uma e calcula o faturamento total previsto.
+ */
+
 int main() {
     tReserva* reservas[3];
 

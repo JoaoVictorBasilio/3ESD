@@ -1,0 +1,5 @@
+output/
+*.o
+*.obj
+*.exe
+*.out

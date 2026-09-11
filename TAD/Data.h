@@ -3,10 +3,13 @@
 #include <string.h>
 #include <stdlib.h>
 
-// Representa��o do TAD: TData
-//-----------
-// Interface
-//-----------
+/*
+ * TAD Data
+ * ----------
+ * Representa uma data calendarizada, armazenando dia, mês e ano.
+ * Esse módulo fornece operações básicas para criação, comparação,
+ * conversão em texto e cálculo de intervalos entre datas.
+ */
 
 typedef struct data tData;
 

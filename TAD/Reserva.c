@@ -3,6 +3,11 @@
 #include <string.h>
 #include "Reserva.h"
 
+/*
+ * Estrutura interna da reserva.
+ * Armazena o nome do hóspede, número do quarto, valor da diária
+ * e as datas de entrada e saída da hospedagem.
+ */
 struct reserva {
     char hospede[50];
     int quarto;

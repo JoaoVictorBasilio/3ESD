@@ -1,7 +1,18 @@
 #ifndef HORARIO_H
 #define HORARIO_H
 
-typedef struct horario Horario;
+/*
+ * TAD Horario
+ * -----------
+ * Representa um horário do dia em horas, minutos e segundos.
+ * Permite criar, comparar e transformar o valor em segundos.
+ */
+
+typedef struct horario {
+    int hora;
+    int min;
+    int seg;
+} Horario;
 
 /* Aloca dinamicamente um Horario validando horas (0-23), minutos (0-59) e segundos (0-59). */
 Horario* hor_cria(int h, int m, int s);
