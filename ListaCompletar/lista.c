@@ -1,4 +1,4 @@
-#include "Lista.h"
+#include "lista.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -72,12 +72,45 @@ void lista_percorre(const tLista *pl) {
     printf("%d )\n", pl->vnos[i]); 
 } 
 
-int lista_inclui(tLista *pl, int novo){
-    int posNovo,achou;
+int lista_inclui(tLista *pl, int novo) {
+    int posNovo, achou;
+
+    // 1. Verifica se tem espaço
     if (lista_cheia(pl))
-        return 0;  // não pode incluir pq tá cheio
+        return 0; 
+
+    // 2. Verifica se já existe (caso a lista NÃO permita repetição)
+    if (!lista_repet(pl)) {
+        if (lista_classif(pl))
+            achou = busca_bin(pl, novo, &posNovo);
+        else
+            achou = busca_des_srep(pl, novo, &posNovo);
+            
+        if (achou)
+            return -1; // Retorna -1 indicando que o elemento já existe
+    }
+
+
+    if (lista_classif(pl)) {
+     
+        if (lista_repet(pl)) {
+            busca_bin(pl, novo, &posNovo); 
+        }
+        
+        // Abre um buraco tamanho 1 na posição correta
+        chegaparalaMC(pl, posNovo, 1);
+        
+        // Insere no buraco
+        pl->vnos[posNovo] = novo;
+    } else {
+        // Se for desordenada, é só colocar no primeiro espaço livre do final
+        pl->vnos[pl->qtnos] = novo;
+    }
+
+ 
+    pl->qtnos++;
     
-       
+    return 1; // Sucesso
 }
 
 int lista_exclui(tLista*pl,int no){
@@ -199,8 +232,19 @@ void chegaparala(tLista *pl, int pos){
 }
 
 void chegaparacaMC(tLista *pl, int posRet, int qt){ 
+    int qtd = pl->qtnos - (posRet+qt);
+
+    if(qtd >0){
+        memmove(&pl->vnos[posRet], &pl->vnos[posRet + qt], qtd *sizeof(int));
+    }
+
+}
    
 
 void chegaparalaMC(tLista *pl, int pos, int qt){ 
+    int qtd = pl->qtnos - pos;
     
+    if (qtd > 0) {
+        memcpy(&pl->vnos[pos + qt], &pl->vnos[pos], qtd * sizeof(int));
+    }
 }

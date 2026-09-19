@@ -7,7 +7,7 @@ Welcome to GDB Online.
 
 *******************************************************************************/
 #include <stdio.h>
-#include "Lista.h"
+#include "lista.h"
 int main()
 {
     tLista * lista;
