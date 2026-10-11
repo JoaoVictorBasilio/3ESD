@@ -142,3 +142,37 @@ void conj_Libera (Conjunto*A)
     }
     return;
 }
+
+
+char* conj_paraString(Conjunto* A){
+    if(A == NULL){
+        return NULL;
+    }
+
+    size_t tamanho = 2; // Para os colchetes
+    Elem* p = A->prim;
+    while(p != NULL){
+        tamanho += snprintf(NULL, 0, "%d", p->elem) + 2; // +2 para a vírgula e espaço
+        p = p->prox;
+    }
+
+    char* str = (char*) malloc(tamanho * sizeof(char));
+    if(str == NULL){
+        return NULL;
+    }
+
+    strcpy(str, "[");
+    p = A->prim;
+    while(p != NULL){
+        char buffer[12]; // Buffer temporário para o número
+        sprintf(buffer, "%d", p->elem);
+        strcat(str, buffer);
+        if(p->prox != NULL){
+            strcat(str, ", ");
+        }
+        p = p->prox;
+    }
+    strcat(str, "]");
+
+    return str;
+}

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "matriz1.h"
 
 struct matriz {
@@ -104,4 +105,29 @@ Matriz* somaMatrizes(const Matriz* A, const Matriz* B) {
         }
     }
     return R;
+}
+
+char* matriz_paraString(Matriz* mat) {
+    if (mat == NULL) return NULL;
+
+    // Respeito ao encapsulamento: usamos funções do próprio TAD em vez de mat->linhas
+    int linhas = linhasMatriz(mat);
+    int colunas = colunasMatriz(mat);
+
+    // Aloca espaço com folga (ex: 15 caracteres por número + quebras de linha)
+    int tamanho_seguro = (linhas * colunas * 15) + linhas + 10;
+    char* str = (char*) calloc(tamanho_seguro, sizeof(char));
+
+    if (str != NULL) {
+        char temp[20];
+        for (int i = 0; i < linhas; i++) {
+            for (int j = 0; j < colunas; j++) {
+                // Acede ao valor encapsulado e formata com 1 casa decimal
+                sprintf(temp, "%6.1f ", acessaMatriz(mat, i, j));
+                strcat(str, temp);
+            }
+            strcat(str, "\n");
+        }
+    }
+    return str;
 }

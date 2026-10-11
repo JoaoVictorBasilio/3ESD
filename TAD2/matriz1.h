@@ -37,4 +37,7 @@ int somaColunaMatriz(const Matriz* m, int coluna, long long* soma_out);
 // Soma de matrizes (resultado = A + B). Retorna nova matriz ou NULL se dimensões incompatíveis.
 Matriz* somaMatrizes(const Matriz* A, const Matriz* B);
 
+/* Aloca e retorna uma string representando os dados da matriz */
+char* matriz_paraString(Matriz* mat);
+
 #endif

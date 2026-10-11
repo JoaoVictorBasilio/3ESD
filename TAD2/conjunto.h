@@ -58,3 +58,7 @@ Conjunto* conj_Diferenca(Conjunto*A, Conjunto*B);
 
 void conj_exibe(Conjunto*A);
 
+char* conj_paraString(Conjunto* A);
+
+
+
